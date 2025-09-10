@@ -1,0 +1,21 @@
+name: Hello World Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run hello-world script
+        run: |
+          chmod +x run.sh
+          ./run.sh
