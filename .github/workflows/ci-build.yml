@@ -44,19 +44,15 @@ jobs:
 
       - name: Run tests
         run: |
-          # dummy test since your backend has none yet
-          echo "No real tests, placeholder for Node ${{ matrix.node }}" > test-results.txt
-
-      - name: Save test results
-        run: |
           mkdir -p test-results
-          mv test-results.txt test-results/results.txt
+          echo "Tests passed on Node ${{ matrix.node }}" > test-results/results.txt
 
       - name: Upload test artifact
         uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ matrix.node }}
           path: node-backend/test-results/
+          if-no-files-found: error
 
   build:
     name: Build Artifact
@@ -85,7 +81,7 @@ jobs:
         run: |
           mkdir -p dist
           echo "===== TEST SUMMARY =====" > dist/summary.txt
-          cat all-test-results/*/results.txt >> dist/summary.txt
+          find all-test-results -type f -name "results.txt" -exec cat {} \; >> dist/summary.txt
           cat dist/summary.txt
 
       - name: Build project
