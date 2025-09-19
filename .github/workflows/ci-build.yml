@@ -72,10 +72,24 @@ jobs:
         with:
           node-version: 18
 
-      - name: Download all test results
+      # ✅ Download all three artifacts explicitly
+      - name: Download Node 16 test results
         uses: actions/download-artifact@v4
         with:
-          path: all-test-results
+          name: test-results-16
+          path: all-test-results/16
+
+      - name: Download Node 18 test results
+        uses: actions/download-artifact@v4
+        with:
+          name: test-results-18
+          path: all-test-results/18
+
+      - name: Download Node 20 test results
+        uses: actions/download-artifact@v4
+        with:
+          name: test-results-20
+          path: all-test-results/20
 
       - name: Summarize test results
         run: |
