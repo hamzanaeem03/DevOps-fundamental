@@ -1,3 +1,14 @@
+name: CI Pipeline
+
+on:
+  push:            # run when you push code
+    branches:
+      - main
+      - dev
+  pull_request:    # run when PR is opened/updated
+    branches:
+      - "*"
+
 jobs:
   ci:
     name: CI (Lint + Test)
@@ -5,6 +16,7 @@ jobs:
     defaults:
       run:
         working-directory: node-backend
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
