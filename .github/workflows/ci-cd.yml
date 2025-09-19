@@ -1,11 +1,11 @@
 name: CI Pipeline
 
 on:
-  push:            # run when you push code
+  push:
     branches:
       - main
       - dev
-  pull_request:    # run when PR is opened/updated
+  pull_request:
     branches:
       - "*"
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: node-backend
+        working-directory: node-backend   # 👈 all steps run inside node-backend/
 
     steps:
       - name: Checkout code
@@ -27,7 +27,12 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Run lint
         run: npm run lint --if-present
@@ -36,7 +41,6 @@ jobs:
         run: npm test --if-present
 
       - name: Archive test results
-        if: always()
         run: |
           mkdir -p test-results
           echo "dummy test results" > test-results/results.txt
