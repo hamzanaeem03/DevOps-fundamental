@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    container_name: cf_mongo_dev
+    restart: unless-stopped
+    volumes:
+      - mongo_data_dev:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: carbon_dev
+
+  backend:
+    build: ./backend
+    container_name: cf_backend_dev
+    command: ["node", "src/server.js"]
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/package.json:/app/package.json:ro
+      - /app/node_modules
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb://mongo:27017/carbon_dev
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data_dev:
