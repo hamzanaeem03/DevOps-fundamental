@@ -47,8 +47,11 @@ The focus of this project is **DevOps workflows**.
 ## ✅ 3. Project Structure
 
 carbon-tracker/
-├── .github/workflows/
-│   └── deploy.yml
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
 ├── backend/
 │   ├── src/
 │   │   ├── __test__/
@@ -58,16 +61,19 @@ carbon-tracker/
 │   │   ├── models/
 │   │   ├── metrics.js
 │   │   └── server.js
+│   │
 │   ├── Dockerfile
 │   ├── docker-compose.yml
 │   ├── package.json
 │   ├── .env.example
 │   └── .eslintrc.js
+│
 ├── frontend/
 │   ├── index.html
 │   ├── styles.css
 │   ├── Dockerfile
 │   └── nginx.conf
+│
 ├── docker-compose.dev.yml
 └── .gitignore
 
