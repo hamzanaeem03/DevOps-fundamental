@@ -183,15 +183,3 @@ Coverage automatically generated and reported in GitHub Actions.
 ✅ No manual SSH required
 
 ---
-
-## ✅ 10. What You Can Confidently Present
-
-✅ CI/CD pipeline with testing
-✅ Dockerized frontend + backend
-✅ Nginx reverse proxy working
-✅ MongoDB integration
-✅ GitHub Actions → AWS deploy
-✅ Branch-based workflow
-✅ Health checks & multi-stage builds
-
----
