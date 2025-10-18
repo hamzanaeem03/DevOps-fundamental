@@ -45,7 +45,7 @@ The focus of this project is **DevOps workflows**.
 ---
 
 ## ✅ 3. Project Structure
-
+```
 carbon-tracker/
 ├── .github/
 │ └── workflows/
@@ -71,7 +71,7 @@ carbon-tracker/
 │ └── nginx.conf
 ├── docker-compose.dev.yml
 └── .gitignore
-
+```
 ---
 
 ## ✅ 4. GitHub Actions (CI/CD Pipeline)
