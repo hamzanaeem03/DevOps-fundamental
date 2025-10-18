@@ -57,6 +57,7 @@ carbon-tracker/
 │ │ │ ├── metrics.test.js
 │ │ │ └── server.test.js
 │ │ ├── models/
+│ │ │ └── activity.js
 │ │ ├── metrics.js
 │ │ └── server.js
 │ ├── Dockerfile
