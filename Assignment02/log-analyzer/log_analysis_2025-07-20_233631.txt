@@ -1,0 +1,23 @@
+===== LOG FILE ANALYSIS REPORT =====
+File: /d/DevOps/sample.log
+Analyzed on: Sun Jul 20 23:36:31 PST 2025
+Size: 0MB (503 bytes)
+
+MESSAGE COUNTS:
+ERROR: 4 messages
+WARNING: 2 messages
+INFO: 3 messages
+
+TOP 5 ERROR MESSAGES:
+      1 Invalid authentication token provided
+      1 Failed to write to disk: Permission denied
+      1 Database connection failed: timeout
+      1 API rate limit exceeded
+
+ERROR TIMELINE:
+First error: [2025-07-10 02:14:32] ERROR - Database connection failed: timeout
+Last error:  [2025-07-12 14:03:27] ERROR - API rate limit exceeded
+
+(Hourly frequency skipped for Git Bash compatibility)
+
+Report saved to: log_analysis_2025-07-20_233631.txt
